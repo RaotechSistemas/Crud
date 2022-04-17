@@ -1,60 +1,122 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="produtos.css">
-        <link href="https://fonts.googleapis.com/css?family=Oswald:200" rel="stylesheet">
-        <title>Cadastro de Produtos</title>
-    </head>
-    <body>
-        <div class="container">
-            <div class=" container">
-                <form action="createUser.php" method="post">
-                    <div class="title">
-                        <h1>Cadastro de Produto/Serviço</h1>
-                        <a class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-                    </div>
-                    <div class="container">
-                        <div class="input_div tipo">
-                            Tipo:
-                            <input type="radio" name="masc"
-                            value="produto" required> Produto
-                            <input type="radio" name="fem"
-                            value="servico" required> Serviço
-                        </div>
-                        <div class="input_div">
-                            <input class="input_form" type="text" name="name" placeholder="Descrição"
-                            value="" required>
-                        </div>
-                        <div class="input_div">
-                            <input class="input_form" type="text" name="email" placeholder="Classe"
-                            value="" required>
-                        </div>
-                        <div class="input_div">
-                            <input class="input_form" type="text" name="login" placeholder="Tipo"
-                            value="" required>
-                        </div>
-                        <div class="input_div">
-                            <input class="input_form" type="password" name="password" placeholder="Medida/Unidade" required>
-                        </div>
-                            <div class="input_div">
-                            <input class="input_form" type="text" name="telefone" placeholder="Quantidade"
-                            value="" required>
-                        </div>
-                            <div class="input_div">
-                            <input class="input_form" type="text" name="city" placeholder="Preço de Custo"
-                            value="" required>
-                        </div>
-                            <div class="input_div">
-                            <input class="input_form" type="text" name="state" placeholder="Fornecedor"
-                            value="" required>
-                        </div>
-                        <button class="botao" name="action" value="create"> enviar </button>
-                    </div>
-                </form>
-            </div>
-        
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="produtos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Cadastro de Produtos e Serviços</title>
+</head>
+
+<body onload="carregar()">
+    <header>
+        <div class="barra">
+            <i class="material-icons mysize" id="info">info</i>
+            <h1>Cadastro de Produtos e Serviços</h1>
+            <i class="material-icons mysize2" id="voltar">arrow_back</i>
         </div>
-        <script type="text/javascript" src="produtos.js"></script>
-    </body>
+    </header>
+        
+    <main>
+        <div class="home">  
+            <form>
+                <div class="input-container">
+                  <div class="container-pesquisar">
+                    <i class="material-icons" id="search">search</i>
+                    <input id="pesquisar" type="text" placeholder="Para pesquisar digite o nome do Produto/Serviço"/>
+                  </div>
+                    <ul id="load">
+                            <li></li>
+                    </ul>
+                </div>
+            </form>
+            <div class="float">
+                    <a class="material-icons" id="add">add_circle</a>
+            </div>
+        </div>
+           
+        <id="container-cadastro" class="cadastro">
+            <form>
+
+                <div class="input-container2">
+                    <div class="styled-select">
+                    <label for="tipo">Tipo</label>
+                    <select name="" id="tipo" >
+                        <option value="" disabled selected></option>
+                        <option value="prod">Produto</option>
+                        <option value="serv">Serviço</option>
+                    </select>
+                    </div>
+                </div>
+
+                <div class="input-container2">
+                    <label for="fornecedor">Fornecedor</label>
+                    <input type="text" id="fornecedor">
+                </div>
+                  
+                <div class="input-container2">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" id="descricao">
+                </div>
+                   
+                                  
+                <div class="input-container2">
+                    <label for="unidade">Unidade/Medida</label>
+                    <select name="" id="unidade" >
+                        <option value="" disabled selected></option>
+                        <option value="prod">Unidade</option>
+                        <option value="serv">Pacote</option>
+                        <option value="prod">Fardo</option>
+                        <option value="serv">Pallete</option>
+                        <option value="prod">Milheiro</option>
+                        <option value="serv">Cento</option>
+                        <option value="prod">Dúzia</option>
+                        <option value="serv">Kg</option>
+                        <option value="prod">Outro</option>
+                    </select>
+                    
+                </div>
+
+                <div class="input-container2">
+                    <label for="quantidade">Quantidade</label>
+                    <input type="number" id="quantidade">
+                </div>
+                  
+                <div class="input-container2">
+                    <label for="custo">Preço de Custo</label>
+                    <input type="text" id="custo">
+                </div>              
+          
+                <div class="input-container2">
+                    <label for="lote">Nº do Lote</label>
+                    <input type="text" id="lote">
+                </div>
+
+                <div class="input-container2">
+                    <label for="fabricacao">Data Fabricação</label>
+                    <input type="date" id="fabricacao">
+                </div>
+
+                <div class="input-container2">
+                    <label for="vencimento">Data de Vencimento</label>
+                    <input type="date" id="vencimento">
+                </div>
+
+            </form>
+          
+            <div class="button-container-button">
+                <i class="btn-salvar" aria-hidden="true"></i>
+                <input type="button" value="Salvar" id="btnsalvar">
+                <i class="btn-remover" aria-hidden="true"></i>
+                <input type="button" value="Remover" id="btnremover">
+            </div>
+              
+        </div>
+    </main>
+
+<script type="text/javascript" src="produtos.js"></script>  
+
+</body>
 </html>

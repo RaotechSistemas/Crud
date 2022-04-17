@@ -1,112 +1,247 @@
 *{
-	-webkit-box-sizing: border-box;
-	-moz-transition-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-body{
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1em;
-}
-
-.formulario_{
-    display:block;
-	position: fixed;
-	top: 0;
-	right: 0;
-	left: 0;
-	bottom: 0;
-}
-
-.formulario_> div {
-	width: 350px;
-	margin: 1% auto;
-	padding-bottom: 20px;
-	border-radius: 10px;
-	background: #fff;
-	padding-bottom: 10px;
-}
-
-.input_div{
-	padding: 10px;
-	display: flex;
-}
-
-#title{
-	text-align: center;
-	width: 100%;
-	height: 40px;
-	border-radius:  5px 5px 0px 0px;
-	display: flex;
-}
-
-#title-form {
-	font-family: 'Oswald', sans-serif;
-    font-size: 24px;
-    color: #232323;
-    background-color: #FAFAFA;
-    margin: 35px auto;
-}
-.container-form,
-.container-table,
-.content {
-	margin: auto;
-}
-
-#input_form {
-	border: solid #232323;
-	border-radius: 5px;
-	border-width: 1px;
-	display: block;
-	width: 100%;
-	height: 35px;
-	padding: 5px;
-	font-family: 'Oswald', sans-serif;
-    font-size: 15px;
-}
-
-.botao {
-	display: flex;
-	justify-content: center;
-	text-align: center;
-	margin: auto;
-	border: solid #232323;
-    border-radius: 5px;
-    border-width: 1px;
-    width: 180px;
-    padding: 5px;
-    font-family: 'Oswald', sans-serif;
-    font-size: 15px;
-    background-color: #232323;
-    color:  #FAFAFA;
-}
-
-.botao:hover {
-	background-color: #FAFAFA;
-	color: #232323;
-}
-
-#input-form:focus{
-	border: 1px solid #00BFFF;
-}
-
-.close {
-    color: #232323;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 20px;
-    display: inline-flex;
-    z-index: 1;
-    float: right;
-    margin-top: 5px;
-    margin-right: 5px;
-}
-.close .fa-times-circle {
-	color: #232323;
-}
-
-.close:hover .close:focus {
-    color: #000;
-    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+  }
+  
+  main{
+    padding: 5%;
+  }
+  
+  header h1{
+    font-size: 1.5rem;
+  }
+  
+  .barra{
+    justify-content: space-between;
+    display: flex;
+    align-items: center; 
+    background: #339999;
+    color: rgba(255, 255, 255, 0.97);
+  }
+  
+  .barra :first-child{    /* icone info */
+    padding-left: 5%;
+  }
+  
+  .barra :last-child{   /* icone voltar */
+    padding-right: 5%;
+  }
+  
+  #info,                   
+  #voltar{                  
+    font-size: 50px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     cursor: pointer;
+  }
+  
+  
+  /* PESQUISAR */
+  
+  #search{
+    font-size: 40px;
+    padding-left: 1.5rem;
+  }
+  
+  .home input[type="text"]{
+    padding-left: 4rem;
+  }
+  
+  .input-container {
+    position: relative;
+  }
+  
+  .input-container input {
+    border-radius: 50px;
+    margin-bottom: 100px;
+    margin-top: 150px;
+    display: flex;
+    height: 90px;
+    width: 100%; 
+    font-size: 20px;
+    border: 1px solid;
+    outline: none;
+  }
+ 
+  
+  .input-container i{
+    position: absolute;
+    line-height: 95px;
+  }
+  
+  /* LISTA DO DOS CONTATOS ADICIONADOS */
+  
+  li{
+    font-size: 16px;
+    border-top: 1px solid #ddd;
+    padding: 20px 0px 20px 0px;
+  }
+  
+  #load :last-child{
+    border-bottom: 1px solid #ddd;
+  }
+  
+  
+  /* INPUTS E SELECTS DA CLASS(.)CADASTRO */
+  .cadastro form :nth-child(1){
+    display: flex;
+    flex-direction: column;
+    grid-area: tipo;
+  } 
+ 
+  .cadastro form :nth-child(2){
+    display: flex;
+    flex-direction: column;
+    grid-area: fornecedor;
+  }
+  
+  .cadastro form :nth-child(3){
+    display: flex;
+    flex-direction: column;
+    grid-area: descricao;
+  } 
+  
+  .cadastro form :nth-child(4){
+    display: flex;
+    flex-direction: column;
+    grid-area: unidade;
+  }
+  
+  .cadastro form :nth-child(5){
+    display: flex;
+    flex-direction: column;
+    grid-area: quantidade;
+  }
+  
+  .cadastro form :nth-child(6){
+    display: flex;
+    flex-direction: column;
+    grid-area: custo;
+  }
+  
+  .cadastro form :nth-child(7){
+    display: flex;
+    flex-direction: column;
+    grid-area: lote;
+  }
+  
+  .cadastro form :nth-child(8){
+    display: flex;
+    flex-direction: column;
+    grid-area: fabricacao;
+  }
+
+  .cadastro form :nth-child(9){
+    display: flex;
+    flex-direction: column;
+    grid-area: vencimento;
+  }
+
+    
+  .cadastro select,
+  .cadastro input{
+    height: 90px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 35px; 
+    font-size: 20px;
+    border: 1px solid;
+    outline: none;
+  }
+  
+  select,
+  input[type="date"] {
+	padding-left: 10px;
 }
+   
+  .cadastro input[type="text"] {
+    padding-left: 10px;
+  }
+  
+  .cadastro input[type="number"]{
+    padding-left: 10px;
+  }
+  
+  .cadastro input[type="date"]{
+    padding-left: 10px;
+  }
+  
+  
+  .cadastro select{
+    padding-left: 20px;
+  }
+  
+  label{
+    font-size: 1.5rem;
+  }
+  
+  .styled-select select{
+     -webkit-appearance: none;
+  }
+  
+  #fabricacao,
+  #vencimento {
+    flex-direction: row; 
+  }
+  
+  
+  /* BOTÕES REMOVER E SALVAR */
+  
+  #btnremover,
+  #btnsalvar{
+    border: none;
+    justify-content: center;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.5rem;
+  }
+  
+  #btnsalvar{
+    background: #339933;
+  }
+  
+  #btnremover{
+    background: #993333;
+  }
+  
+  
+  /* FLOATING BUTTON */
+  
+  #add{
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    font-size: 80px;
+    color: rgba(255, 51, 89, 0.95);
+    cursor: pointer;
+  }
+  
+  
+  
+  @media screen and (min-width: 600px){
+    .cadastro form{
+      display: grid;
+  
+      grid-template-areas: 
+	  "tipo tipo"
+	  "fornecedor descricao" 
+	  "unidade quantidade"
+      "custo lote"
+      "fabricacao vencimento";
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 1.5rem;
+    }
+    
+    .button-container-button{
+      display: flex;
+    }
+    
+    #btnsalvar{
+      margin-right: 1.5rem;
+    }
+  }
+  
+  
