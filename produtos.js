@@ -1,21 +1,24 @@
 var salvar = new Array();
 
 class Cadastro{
-  constructor(nome,cpf, sexo, email, telefone, nascimento, cidade, estado ){
-    this.nome = nome;
-    this.cpf = cpf;
-    this.sexo = sexo;
-    this.email = email;
-    this.telefone = telefone;
-    this.nascimento = nascimento;
-    this.cidade = cidade;
-    this.estado = estado;
+  constructor(tipo, fornecedor, descricao, unidade, quantidade, custo, lote, fabricacao, vencimento){
+    this.tipo = tipo;
+    this.fornecedor = fornecedor;
+    this.descricao = descricao;
+    this.unidade = unidade;
+    this.quantidade = quantidade;
+    this.custo = custo;
+    this.lote = lote;
+    this.fabricacao = fabricacao;
+    this.vencimento = vencimento;
   }
+  
 
   mensagem()
     {
-    alert("Cadastro Efetuado!"+"\n"+"\n"+this.nome+"\n"+this.cpf+"\n"+this.sexo+"\n"+this.email+"\n"+this.telefone+"\n"+this.nascimento+"\n"+this.cidade+"\n"+this.estado);
+    alert("Cadastro Efetuado com Sucesso!"+"\n"+"\n"+"DETALHES"+"\n"+"\n"+"TIPO: "+this.tipo+"\n"+"FORNECEDOR: "+this.fornecedor+"\n"+"DESCRIÇÃO: "+this.descricao+"\n"+"UNIDADE: "+this.unidade+"\n"+"QUANTIDADE: "+this.quantidade+"\n"+"CUSTO: R$ "+this.custo+"\n"+"Nº DE LOTE: "+this.lote+"\n"+"DATA DE FABRICAÇÃO: "+this.fabricacao+"\n"+"DATA DE VENCIMENTO: "+this.vencimento);
     }
+
 
 }
 
@@ -29,7 +32,7 @@ function carregar(){
     texto="";
     for(i=0;i<tamanho;i++)
     {
-     texto = texto+ '<li onclick="mostrar(' + salvar[i].cpf + ')">' + salvar[i].nome+"</li>";
+     texto = texto+ '<li onclick="mostrar(' + salvar[i].descricao + ')">' + salvar[i].quantidade+"</li>";
      }
   } 				
   else{
@@ -39,49 +42,48 @@ function carregar(){
   carrega.innerHTML = texto;
 }
 
-function mostrar(cpf){
-  alert(cpf);
+function mostrar(descricao){
+  alert(descricao);
 }
 
 
-/* LIMPAR AS INPUTS E SELECTS PARA PODER DIGITAR DE NUEVO */
+/* LIMPAR AS INPUTS E SELECTS PARA PODER DIGITAR DE NOVO */
 function limpar(){
-  document.querySelector('#nome').value= '';
-  document.querySelector('#cpf').value= '';
-  document.querySelector('#sexo').selectedIndex = 0;
-  document.querySelector('#email').value= '';
-  document.querySelector('#telefone').value= '';
-  document.querySelector('#nascimento').selectedIndex = 0;
-  document.querySelector('#cidade').value = '';
-  document.querySelector('#estado').selectedIndex = 0;
-
+  document.querySelector('#tipo').selectedIndex = 0;
+  document.querySelector('#fornecedor').value = '';
+  document.querySelector('#unidade').value = '';
+  document.querySelector('#quantidade').value = '';
+  document.querySelector('#custo').value ='';
+  document.querySelector('#lote').value = '';
+  document.querySelector('#fabricacao').selectedIndex = 0;
+  document.querySelector('#vencimento').selectedIndex = 0;
 }
 
 
 /* SALVAR OS CADASTROS REALIZADOS*/
-document.querySelector('#btnsalvar').onclick = function(evt){
+document.querySelector('#btnsalvar').onclick = function(evt) {
 
-  var nome = document.querySelector('#nome').value;
-  var cpf = document.querySelector('#cpf').value;
-  var sexo = document.querySelector('#sexo').value;
-  var email = document.querySelector('#email').value;
-  var telefone = document.querySelector('#telefone').value;
-  var nascimento = document.querySelector('#nascimento').value;
-  var cidade = document.querySelector('#cidade').value;
-  var estado = document.querySelector('#estado').value;
-  var usuario = new Cadastro(nome,cpf,sexo,email,telefone,nascimento,cidade,estado);
+  if (document.querySelector('#tipo').value = "" || (document.querySelector('#fornecedor').value = "" || (document.querySelector('#unidade').value = "" || (document.querySelector('#quantidade').value = "" || (document.querySelector('#custo').value = "" || (document.querySelector('#lote').value = "" || (document.querySelector('#fabricacao').selectedIndex = "" || (document.querySelector('#vencimento').selectedIndex = "")))))))) {
+    alert("Preencha todos os dados solicitados")
+  }
+  else {
+
+  var tipo = document.querySelector('#tipo').value;
+  var fornecedor = document.querySelector('#fornecedor').value;
+  var descricao = document.querySelector('#descricao').value;
+  var unidade = document.querySelector('#unidade').value;
+  var quantidade = document.querySelector('#quantidade').value;
+  var custo = document.querySelector('#custo').value;
+  var lote = document.querySelector('#lote').value;
+  var fabricacao = document.querySelector('#fabricacao').value;
+  var vencimento = document.querySelector('#vencimento').value;
+  var usuario = new Cadastro(tipo, fornecedor, descricao, unidade, quantidade, custo, lote, fabricacao, vencimento);
   salvar.push(usuario);
   usuario.mensagem();
   carregar();	
 
   limpar();
-
 }
-
-
-/* INFORMAÇÕES DO ICONE INFO */
-document.querySelector('#info').onclick = function(evt){
-  alert("Cadastro de Clientes");
 }
 
 
